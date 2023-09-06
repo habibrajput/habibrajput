@@ -4,7 +4,7 @@
 
 - :office: &nbsp; I'm working as a Full Stack Engineer in UAE - Dubai
 - 🌱 &nbsp; I’m currently learning new frameworks and technologies to become a better engineer
-- 📫 &nbsp; Ping me at: duongkhlinh@gmail.com
+- 📫 &nbsp; Ping me at: habib.dev.vr2@gmail.com
 
 ### 🛠 Languages & Tools
 <p>
