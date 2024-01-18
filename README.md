@@ -45,8 +45,4 @@
   <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer">
   <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/>
 </a>
-
 </p>
-
-
-### :books: Learning
