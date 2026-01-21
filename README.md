@@ -2,7 +2,7 @@
 
 ### 👨🏻‍💻 About Me
 
-- :office: &nbsp; I'm working as a Full Stack Engineer in UAE - Dubai
+- :office: &nbsp; I'm working as a Senior Software Engineer in UAE - Dubai
 - 🌱 &nbsp; I’m currently learning new frameworks and technologies to become a better engineer
 - 📫 &nbsp; Ping me at: habib.dev.vr2@gmail.com
 
