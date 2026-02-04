@@ -42,20 +42,10 @@ const habib = {
 ## 💼 Professional Highlights
 
 🎯 **Senior Software Engineer @ Dr. Nutrition** (Dubai, UAE)
-- Built custom **page builder** using React.js, Vue.js & jQuery for marketing teams
-- Integrated payment gateways (**Tabby**, **Tamara**) for seamless transactions
-- Developed **WhatsApp notification** system for real-time order updates
-- Optimized e-commerce flows: cart, checkout, coupons & abandonment recovery
 
 🔧 **Full Stack Developer @ RepairDesk** (Lahore)
-- Migrated legacy **Vue.js 2 → Vue.js 3** modules for better performance
-- Built & maintained **RESTful APIs** using Laravel 8 & Yii2
-- Enhanced platform stability through root-cause analysis & troubleshooting
 
 💡 **Software Engineer @ Developers Studio**
-- Created scalable APIs with **Laravel & Node.js** for React Native apps
-- Integrated **Farm Tech** systems for agricultural robotics automation
-- Built **Apple Wallet gift card** platform with crypto address embedding
 
 ---
 
