@@ -43,9 +43,9 @@ const habib = {
 
 🎯 **Senior Software Engineer @ Dr. Nutrition** (Dubai, UAE)
 
-🔧 **Full Stack Developer @ RepairDesk** (Lahore)
+🔧 **Full Stack Developer @ RepairDesk** (Lahore, Pakistan)
 
-💡 **Software Engineer @ Developers Studio**
+💡 **Software Engineer @ Developers Studio** (Lahore, Pakistan)
 
 ---
 
