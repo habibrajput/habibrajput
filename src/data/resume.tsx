@@ -57,11 +57,11 @@ const PROJECTS: readonly Project[] = [
   },
   {
     title: "Geysital – Smart Geyser Control App",
-    role: "Smart Geyser Control App",
+    role: "Senior Full-Stack Developer",
     image: "/projects/geysital.webp",
     description:
-      "A mobile app for controlling smart water heaters. Users pair a geyser over Bluetooth or set it up on home Wi-Fi for remote control, then manage every geyser from one dashboard — live and target temperature, power, a temperature slider from 35–75°C, and gas, electric or hybrid source priority.",
-    technologies: ["Mobile App", "Bluetooth LE", "Wi-Fi Setup", "IoT"],
+      "A React Native app for controlling smart water heaters. Users pair a geyser over Bluetooth or set it up on home Wi-Fi for remote control, then manage every geyser from one dashboard — live and target temperature, power, a temperature slider from 35–75°C, and gas, electric or hybrid source priority.",
+    technologies: ["React Native", "Bluetooth LE", "Wi-Fi Setup", "IoT"],
   },
   {
     title: "Pella Nova – Personal Branding & AI Visibility",
