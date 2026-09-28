@@ -34,74 +34,150 @@ import {
 import type { ComponentType, ReactNode, SVGProps } from "react";
 
 
-type Project = {
+export type ProjectImage = { src: string; alt: string; width: number; height: number };
+
+export type Project = {
+  slug: string;
   title: string;
   role: string;
   href?: string;
   description: string;
+  overview: string;
+  impact: readonly string[];
   technologies: readonly string[];
+  images: readonly ProjectImage[];
   links?: readonly { type: string; href: string; icon: ReactNode }[];
-  image?: string;
-  video?: string;
 };
+
+const wide = (src: string, alt: string): ProjectImage => ({ src, alt, width: 2000, height: 1101 });
+const phone = (src: string, alt: string): ProjectImage => ({ src, alt, width: 563, height: 1000 });
 
 const PROJECTS: readonly Project[] = [
   {
+    slug: "egp-hub",
     title: "eGP Hub – Multi-Tenant Learning Management System",
     role: "Senior Software Engineer",
     href: "https://platform.egphub.com/",
     description:
       "A multi-tenant learning management system where every organization runs its own isolated space — courses, learners and content — on one shared platform. As a senior engineer I build features across the Laravel backend and Vue.js frontend and ship them through Dockerized CI/CD pipelines to AWS.",
+    overview:
+      "eGP Hub is a multi-tenant learning management system. Each organization gets its own isolated space for courses, learners and content, while everything runs on one shared platform and codebase.\n\nI work on it as a Senior Software Engineer, building features end to end across the Laravel backend and the Vue.js frontend, and shipping them through Dockerized CI/CD pipelines to AWS.",
+    impact: [
+      "Build features end to end across the Laravel backend and Vue.js frontend of a platform shared by multiple organizations.",
+      "Work within a multi-tenant architecture where each organization's courses, learners and content stay isolated.",
+      "Ship changes through Dockerized CI/CD pipelines to AWS, keeping releases consistent and repeatable.",
+    ],
     technologies: ["Laravel", "Vue.js", "Docker", "CI/CD Pipelines", "AWS"],
-    image: "/projects/egphub.webp",
+    images: [wide("/projects/egphub.webp", "eGP Hub login page")],
   },
   {
+    slug: "geysital",
     title: "Geysital – Smart Geyser Control App",
     role: "Senior Full-Stack Developer",
-    image: "/projects/geysital.webp",
     description:
       "A React Native app for controlling smart water heaters. Users pair a geyser over Bluetooth or set it up on home Wi-Fi for remote control, then manage every geyser from one dashboard — live and target temperature, power, a temperature slider from 35–75°C, and gas, electric or hybrid source priority.",
+    overview:
+      "Geysital is a React Native app for controlling smart water heaters (geysers) from a phone.\n\nA geyser can be paired directly over Bluetooth for quick local control, or set up on the home Wi-Fi network for remote control. Once connected, users manage every geyser from one dashboard: see live and target temperature, switch power on and off, set the temperature between 35 and 75°C, and choose whether the geyser heats with gas, electricity or both.",
+    impact: [
+      "Built the app end to end as Senior Full-Stack Developer, in React Native.",
+      "Implemented Bluetooth discovery and pairing, with connection status and signal strength shown to the user.",
+      "Built a guided device setup that offers Wi-Fi for remote control or direct Bluetooth for quick local use.",
+      "Designed the control screen: live vs target temperature, power, temperature slider and gas / electric / hybrid source priority.",
+      "Added a multi-geyser dashboard showing every device with its online status, mode and current temperature.",
+    ],
     technologies: ["React Native", "Bluetooth LE", "Wi-Fi Setup", "IoT"],
+    images: [
+      phone("/projects/geysital.webp", "Geysital control screen: full control at a glance"),
+      phone("/projects/geysital-bluetooth.webp", "Geysital Bluetooth discovery: connected device"),
+      phone("/projects/geysital-dashboard.webp", "Geysital dashboard: all your geysers in one place"),
+      phone("/projects/geysital-setup.webp", "Geysital device setup: Wi-Fi or direct Bluetooth"),
+    ],
   },
   {
+    slug: "pella-nova",
     title: "Pella Nova – Personal Branding & AI Visibility",
     role: "Next.js Frontend Developer",
-    image: "/projects/pella-nova.webp",
     description:
       "A personal-branding platform that helps executives and founders get found in search and AI answers. I worked on the redesign in Next.js and React — service and pricing pages, portfolio designs, forms and reusable UI components — with a focus on mobile responsiveness and performance.",
+    overview:
+      "Pella Nova is a professional personal-branding platform. It helps executives, entrepreneurs and professionals build structured online profiles, so they are easier to find in search engines and AI answers.\n\nI contributed to the redesign and frontend development in Next.js and React.",
+    impact: [
+      "Built responsive pages and reusable UI components for the redesign in Next.js and React.",
+      "Implemented modern layouts for service sections, pricing packages, portfolio designs and forms.",
+      "Made the site fully mobile-responsive.",
+      "Delivered performance-focused frontend improvements.",
+    ],
     technologies: ["Next.js", "React", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+    images: [wide("/projects/pella-nova.webp", "Pella Nova homepage")],
   },
   {
+    slug: "repairdesk",
     title: "RepairDesk – SaaS POS for Repair Shops",
     role: "Full-Stack Developer",
-    image: "/projects/repairdesk.webp",
     description:
       "A cloud platform repair shops run their day on — tickets, inventory, sales and operations. I shipped features across Laravel and Yii2 APIs, fixed production issues through root-cause analysis, and led the migration of legacy Vue 2 modules to Vue 3.",
+    overview:
+      "RepairDesk is a cloud-based SaaS platform that repair businesses use to run their day: tickets, point of sale, inventory, trade-ins and customer communication.\n\nI worked across the frontend (Vue.js, React.js) and backend (Laravel, Yii2) as a Full-Stack Developer.",
+    impact: [
+      "Resolved complex production issues through in-depth troubleshooting and root-cause analysis, improving platform stability before joining the feature team.",
+      "Led the migration of legacy Vue 2 modules to Vue 3, improving performance and maintainability and keeping the frontend on a supported framework.",
+      "Developed RESTful APIs in Laravel 8 and maintained and optimized existing Yii2 APIs for secure, scalable data exchange.",
+    ],
     technologies: ["Laravel", "Yii2", "Vue.js", "JavaScript", "MySQL", "REST APIs"],
+    images: [wide("/projects/repairdesk.webp", "RepairDesk homepage")],
   },
   {
+    slug: "tabletab",
     title: "TableTab – Restaurant POS & Management Platform",
     role: "Senior Full-Stack Developer",
-    image: "/projects/tabletab.webp",
     description:
       "A multi-tenant restaurant platform combining POS, online ordering and back office. I designed the modular NestJS backend on PostgreSQL and Redis, built the customer and admin apps in Next.js, and own authentication, onboarding, tenant management, email workflows, realtime order tracking, an offline-capable POS, and the containerized production setup.",
+    overview:
+      "TableTab is a multi-tenant restaurant platform that brings the POS, online ordering and back office together in one product.\n\nI designed the modular NestJS backend on PostgreSQL and Redis, built the customer-facing and admin apps in Next.js and TypeScript, and set up the containerized production infrastructure.",
+    impact: [
+      "Designed a modular NestJS backend on PostgreSQL and Redis for many restaurants on one platform.",
+      "Built realtime order tracking with Server-Sent Events, so guests and the kitchen see status changes instantly.",
+      "Made the POS keep taking orders when the network drops, syncing them automatically once it's back.",
+      "Implemented authentication, restaurant onboarding, tenant management and per-role permissions enforced on every endpoint.",
+      "Set up email workflows and containerized production deployment on Hetzner behind Cloudflare.",
+    ],
     technologies: ["NestJS", "Next.js", "TypeScript", "PostgreSQL", "Redis", "Docker", "Cloudflare", "Hetzner"],
+    images: [wide("/projects/tabletab.webp", "TableTab login and QR dine-in ordering screen")],
   },
   {
+    slug: "dr-nutrition",
     title: "Dr. Nutrition – Multi-Country E-commerce",
     role: "Senior Full-Stack Developer",
-    image: "/projects/dr-nutrition.webp",
     description:
       "An international e-commerce platform for a health and nutrition retailer. I built checkout, payments, promotions, cart recovery, shipping and content features, integrated Tabby and Tamara buy-now-pay-later, added WhatsApp order updates, and created a page builder that lets marketing launch campaign pages without developers.",
+    overview:
+      "Dr. Nutrition runs an international e-commerce platform for health and nutrition products across multiple countries.\n\nI worked on customer-facing features and backend functionality for checkout, payments, promotions, cart recovery, order communication, shipping and content management.",
+    impact: [
+      "Built cart abandonment recovery, coupon and discount systems, and checkout flow optimizations to improve conversion rates.",
+      "Integrated Tabby and Tamara buy-now-pay-later payments with secure, compliant processing across checkout flows.",
+      "Designed WhatsApp notifications that give customers real-time order status updates after purchase.",
+      "Created a custom page builder that lets non-technical teams launch event, promotion and campaign pages without developers.",
+      "Built reusable React.js and Vue.js components backed by scalable backend services.",
+    ],
     technologies: ["Laravel", "Vue.js", "React", "JavaScript", "MySQL", "Redis", "REST APIs"],
+    images: [wide("/projects/dr-nutrition.webp", "Dr. Nutrition storefront")],
   },
   {
+    slug: "laperva",
     title: "Laperva – Health & Nutrition E-commerce",
     role: "Senior Full-Stack Developer",
-    image: "/projects/laperva.webp",
     description:
       "The online store for Laperva, a health and nutrition brand, built while at Dr. Nutrition. I worked on responsive product and content pages, backend integrations and site performance, using reusable components shared across the storefront.",
+    overview:
+      "Laperva is the online store of a health and nutrition brand. I contributed to its development and maintenance while working with Dr. Nutrition.",
+    impact: [
+      "Built responsive frontend functionality for product and content presentation.",
+      "Worked on backend integrations for the storefront.",
+      "Improved website performance.",
+      "Built maintainable, reusable components shared across the store.",
+    ],
     technologies: ["Laravel", "PHP", "Vue.js", "React", "JavaScript", "MySQL", "REST APIs"],
+    images: [wide("/projects/laperva.webp", "Laperva storefront")],
   },
 ];
 
@@ -180,12 +256,17 @@ export const DATA = {
   ],
   linkedinPosts: [
     {
-      urn: "urn:li:share:7509128354436984832",
-      title: "LinkedIn post by Habib Ur Rehman: moving our product to a monorepo",
+      url: "https://www.linkedin.com/feed/update/urn:li:share:7509128354436984832",
+      date: "Sep 25, 2026",
+      text: "We recently set up our product as a monorepo. Our customer app, admin dashboard, backend and marketing site now all live in one repository. It wasn't an obvious choice at first, so I want to share why we did it and what we've learned along the way.\n\n**Why we chose it** — Most features touch more than one app. With separate repos, that meant 3 PRs, 3 reviews and a lot of \"which version works with which?\" With a monorepo, it's one PR and one review, and everything ships together.\n\n**What's been great** — shared code written once, atomic changes, easier onboarding, one setup.\n\n**What's been hard** — slow CI without smart caching, blurred boundaries, deploys that need care, and a repo that grows fast.\n\n**My take:** a monorepo isn't \"better.\" It's a trade-off. Choose the structure that fits your team, not the trend.",
+      tags: ["SoftwareEngineering", "Monorepo", "SystemDesign", "WebDevelopment"],
     },
     {
-      urn: "urn:li:ugcPost:7507472101587464193",
-      title: "LinkedIn post by Habib Ur Rehman: Claude Code certification",
+      url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7507472101587464193",
+      date: "Sep 20, 2026",
+      text: "Completed my Claude Code certification. 🎓\n\nA great learning experience that gave me a better understanding of AI-assisted coding and development workflows. 💻\n\nLooking forward to putting this knowledge into practice. 🚀",
+      tags: ["ClaudeCode", "AI", "SoftwareDevelopment", "Learning"],
+      image: { src: "/linkedin/claude-code-certificate.webp", alt: "Claude Code in Action certificate of completion", width: 1000, height: 772 },
     },
   ],
   avatarUrl: "/me.jpg",

@@ -1,4 +1,7 @@
-import { LinkedInEmbed } from "@/components/linkedin-embed";
+/* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import Markdown from "react-markdown";
+import { Icons } from "@/components/icons";
 import { DATA } from "@/data/resume";
 
 export default function LinkedInSection() {
@@ -21,7 +24,44 @@ export default function LinkedInSection() {
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {DATA.linkedinPosts.map((post) => (
-          <LinkedInEmbed key={post.urn} {...post} />
+          <article key={post.url} className="flex flex-col gap-3 rounded-xl border border-border p-4">
+            <header className="flex items-center gap-3">
+              <img
+                src={DATA.avatarUrl}
+                alt={DATA.name}
+                className="size-10 rounded-full object-cover"
+              />
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold leading-tight">{DATA.name}</p>
+                <p className="text-xs text-muted-foreground">{post.date}</p>
+              </div>
+              <Icons.linkedin className="size-5 shrink-0 text-[#0A66C2]" aria-hidden />
+            </header>
+            <div className="prose prose-sm max-w-none text-muted-foreground dark:prose-invert line-clamp-6 prose-p:my-0 prose-p:mb-2 prose-strong:text-foreground">
+              <Markdown>{post.text}</Markdown>
+            </div>
+            {"image" in post && (
+              <img
+                src={post.image.src}
+                alt={post.image.alt}
+                width={post.image.width}
+                height={post.image.height}
+                loading="lazy"
+                className="h-auto w-full rounded-lg border border-border"
+              />
+            )}
+            <p className="text-xs text-[#0A66C2]">
+              {post.tags.map((tag) => `#${tag}`).join(" ")}
+            </p>
+            <Link
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium hover:bg-muted transition-colors"
+            >
+              View on LinkedIn
+            </Link>
+          </article>
         ))}
       </div>
     </div>

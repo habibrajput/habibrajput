@@ -25,10 +25,14 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+const isExternal = (href: string) => /^https?:\/\//.test(href);
+const linkTarget = (href: string) =>
+  isExternal(href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
 function MediaLink({ href, children }: { href?: string; children: React.ReactNode }) {
   if (!href) return <div>{children}</div>;
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer" className="block">
+    <Link href={href} {...linkTarget(href)} className="block">
       {children}
     </Link>
   );
@@ -119,8 +123,7 @@ export function ProjectCard({
           {href && (
             <Link
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...linkTarget(href)}
               className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
               aria-label={`Open ${title}`}
             >
