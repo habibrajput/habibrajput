@@ -47,6 +47,19 @@ export type Project = {
   technologies: readonly string[];
   images: readonly ProjectImage[];
   links?: readonly { type: string; href: string; icon: ReactNode }[];
+  stats?: readonly { value: string; label: string; detail: string }[];
+  caseStudy?: CaseStudy;
+};
+
+export type CaseStudy = {
+  pdf: string;
+  problem: { intro: string; points: readonly string[] };
+  approach: readonly { title: string; detail: string }[];
+  build: {
+    intro: string;
+    paths: readonly { title: string; flow: string; points: readonly string[] }[];
+    stack: readonly { name: string; role: string }[];
+  };
 };
 
 const wide = (src: string, alt: string): ProjectImage => ({ src, alt, width: 2000, height: 1101 });
@@ -75,23 +88,73 @@ const PROJECTS: readonly Project[] = [
     title: "Geysital – Smart Geyser Control App",
     role: "Senior Full-Stack Developer",
     description:
-      "A React Native app for controlling smart water heaters. Users pair a geyser over Bluetooth or set it up on home Wi-Fi for remote control, then manage every geyser from one dashboard — live and target temperature, power, a temperature slider from 35–75°C, and gas, electric or hybrid source priority.",
+      "Smart geyser automation: a React Native app that controls a connected water heater over Bluetooth or Wi-Fi — live and target temperature, power, gas / electric / hybrid source priority and daily heating routines — backed by Node.js, MQTT and Embedded C firmware.",
     overview:
-      "Geysital is a React Native app for controlling smart water heaters (geysers) from a phone.\n\nA geyser can be paired directly over Bluetooth for quick local control, or set up on the home Wi-Fi network for remote control. Once connected, users manage every geyser from one dashboard: see live and target temperature, switch power on and off, set the temperature between 35 and 75°C, and choose whether the geyser heats with gas, electricity or both.",
+      "Geysital is a smart geyser automation system that modernizes traditional water heating by giving users complete control through a mobile app. The app connects to the geyser so people can monitor, control and automate heating without standing at the appliance.\n\nCore capabilities cover power, live temperature, target and range, gas / electric / hybrid source selection, source priority, routines, and dual connectivity over Bluetooth Low Energy and Wi-Fi.",
     impact: [
-      "Built the app end to end as Senior Full-Stack Developer, in React Native.",
-      "Implemented Bluetooth discovery and pairing, with connection status and signal strength shown to the user.",
-      "Built a guided device setup that offers Wi-Fi for remote control or direct Bluetooth for quick local use.",
-      "Designed the control screen: live vs target temperature, power, temperature slider and gas / electric / hybrid source priority.",
-      "Added a multi-geyser dashboard showing every device with its online status, mode and current temperature.",
+      "Turned a manual appliance into a connected one: users switch the geyser on and off from their phone with live connection status.",
+      "Made heating visible — the current temperature sits next to the target (e.g. 29°C live vs a 45°C target), inside a safe 20–75°C range.",
+      "Put energy choice in the user's hands with gas, electric and hybrid modes plus source priority.",
+      "Added daily routines, e.g. 50°C electric at 6 AM, 45°C on gas at 7 PM, standby at 10 PM.",
+      "Designed dual connectivity: nearby control over Bluetooth, and remote control over Wi-Fi through a Node.js + Express backend and MQTT.",
+      "Made pairing clear: add by ID, scan, and helpful empty states instead of silent failures.",
     ],
-    technologies: ["React Native", "Bluetooth LE", "Wi-Fi Setup", "IoT"],
+    technologies: ["React Native", "Node.js", "Express", "MQTT", "Bluetooth LE", "Wi-Fi", "Embedded C"],
     images: [
       phone("/projects/geysital.webp", "Geysital control screen: full control at a glance"),
+      { src: "/projects/geysital-cover.webp", alt: "Geysital case study cover: the app next to a connected geyser", width: 707, height: 1000 },
       phone("/projects/geysital-bluetooth.webp", "Geysital Bluetooth discovery: connected device"),
       phone("/projects/geysital-dashboard.webp", "Geysital dashboard: all your geysers in one place"),
       phone("/projects/geysital-setup.webp", "Geysital device setup: Wi-Fi or direct Bluetooth"),
     ],
+    stats: [
+      { value: "3", label: "Heating modes", detail: "Gas, Electric and Hybrid, with source priority." },
+      { value: "2", label: "Connection paths", detail: "Bluetooth for nearby pairing, Wi-Fi + MQTT for remote." },
+      { value: "6", label: "Core capabilities", detail: "Control, visibility, flexibility, efficiency, automation, connectivity." },
+    ],
+    caseStudy: {
+      pdf: "/case-studies/geysital-case-study.pdf",
+      problem: {
+        intro:
+          "Traditional geysers need manual operation and give little visibility into the heating process. Users walk to the appliance, check the water temperature by hand, and decide when to stop heating — inconvenient, and it can waste energy.",
+        points: [
+          "Manual ON/OFF at the appliance",
+          "No live temperature on a phone",
+          "Limited target temperature control",
+          "Hard to choose Gas, Electric or Hybrid",
+          "No routines around daily use",
+          "Little feedback on device state",
+        ],
+      },
+      approach: [
+        { title: "Monitor", detail: "Live temperature, power, heating and connection status first." },
+        { title: "Control", detail: "One-tap ON/OFF and a visible target temperature slider." },
+        { title: "Configure", detail: "Gas, Electric or Hybrid, plus source priority and safe bounds." },
+        { title: "Automate", detail: "Routines that heat around the day instead of every manual tap." },
+      ],
+      build: {
+        intro:
+          "Two complementary paths sit under the same app. Bluetooth is nearby and local; Wi-Fi carries the IoT path through the backend and MQTT. Both meet in Embedded C firmware on the geyser.",
+        paths: [
+          {
+            title: "Nearby · Bluetooth LE",
+            flow: "App → BLE → Geysital device",
+            points: ["Scan and pair", "Device name, ID and signal strength", "Open the dashboard without the backend"],
+          },
+          {
+            title: "Connected · Wi-Fi / MQTT",
+            flow: "App → Backend → MQTT → Device",
+            points: ["Remote-oriented control", "Node.js + Express APIs and device services", "Lightweight MQTT messaging to the device"],
+          },
+        ],
+        stack: [
+          { name: "React Native", role: "Cross-platform mobile app and UI" },
+          { name: "Node.js + Express", role: "Backend APIs and device services" },
+          { name: "BLE + MQTT", role: "Local radio and lightweight IoT messaging" },
+          { name: "Embedded C", role: "Firmware: temperature, commands, heating, comms" },
+        ],
+      },
+    },
   },
   {
     slug: "pella-nova",
