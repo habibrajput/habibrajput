@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/habibrajput">
-    <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=2ea043&fontSize=54&height=90&width=1018&text=Hello!%20I'm%20Habib%20Ur%20Rehman%20%F0%9F%91%8B" alt="Hello! I&#39;m Habib Ur Rehman 👋" />
+    <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=fffff&fontSize=54&height=90&width=1018&text=Hello!%20I'm%20Habib%20Ur%20Rehman%20%F0%9F%91%8B" alt="Hello! I&#39;m Habib Ur Rehman 👋" />
   </a>
 </p>
 
