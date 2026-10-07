@@ -20,20 +20,53 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 });
 
+const SITE_TITLE = `${DATA.name} — Senior Software Engineer (Laravel, NestJS, Next.js)`;
+const SITE_DESCRIPTION =
+  "Habib Ur Rehman is a Senior Software Engineer with 6+ years of experience building multi-tenant SaaS, e-commerce, fintech and POS platforms with Laravel, NestJS, Vue.js, React and Next.js. Based in Lahore, Pakistan.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
+    default: SITE_TITLE,
     template: `%s | ${DATA.name}`,
   },
-  description: DATA.description,
+  description: SITE_DESCRIPTION,
+  applicationName: DATA.name,
+  authors: [{ name: DATA.name, url: DATA.url }],
+  creator: DATA.name,
+  publisher: DATA.name,
+  keywords: [
+    "Habib Ur Rehman",
+    "Habib Rajput",
+    "Senior Software Engineer",
+    "Senior Full-Stack Developer",
+    "Laravel Developer",
+    "NestJS Developer",
+    "Next.js Developer",
+    "Vue.js Developer",
+    "React Developer",
+    "React Native Developer",
+    "PHP Developer",
+    "Full-Stack Engineer Pakistan",
+    "Software Engineer Lahore",
+    "Multi-tenant SaaS",
+    "E-commerce Developer",
+    "POS Systems",
+  ],
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: DATA.name,
     locale: "en_US",
-    type: "website",
+    type: "profile",
+    firstName: "Habib",
+    lastName: "Ur Rehman",
+    username: DATA.githubUsername,
   },
   robots: {
     index: true,
@@ -47,12 +80,9 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     card: "summary_large_image",
-  },
-  verification: {
-    google: "",
-    yandex: "",
   },
 };
 

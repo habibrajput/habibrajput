@@ -234,3 +234,15 @@
   }
 
 }
+@theme {
+  --animate-shimmer: shimmer 3s linear infinite;
+
+  @keyframes shimmer {
+    from {
+      background-position: 100% 0;
+    }
+    to {
+      background-position: -150% 0;
+    }
+  }
+}

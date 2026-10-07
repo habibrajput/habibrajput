@@ -47,6 +47,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title,
       description,
@@ -110,6 +111,7 @@ export default async function Blog({
     author: {
       "@type": "Person",
       name: DATA.name,
+      url: DATA.url,
     },
   }).replace(/</g, "\\u003c");
 

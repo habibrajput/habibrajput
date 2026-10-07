@@ -12,18 +12,16 @@ import WorkSection from "@/components/section/work-section";
 import GitHubSection from "@/components/section/github-section";
 import LinkedInSection from "@/components/section/linkedin-section";
 import GallerySection from "@/components/section/gallery-section";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { CONTACT_LINKS } from "@/components/contact-links";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import ProfileSidebar from "@/components/profile-sidebar";
+import { AvailabilityLine } from "@/components/availability-line";
+import { JsonLd } from "@/components/json-ld";
 import type { ReactNode } from "react";
 
 const BLUR_FADE_DELAY = 0.04;
 
-const CONTACT_LINKS = [
-  { label: DATA.contact.email, href: `mailto:${DATA.contact.email}`, icon: Mail, external: false },
-  { label: DATA.contact.telDisplay, href: `tel:${DATA.contact.tel}`, icon: Phone, external: false },
-  { label: DATA.location, href: DATA.locationLink, icon: MapPin, external: true },
-  { label: "GitHub", href: DATA.contact.social.GitHub.url, icon: DATA.contact.social.GitHub.icon, external: true },
-  { label: "LinkedIn", href: DATA.contact.social.LinkedIn.url, icon: DATA.contact.social.LinkedIn.icon, external: true },
-];
 
 function CertificationLink({ href, children }: { href?: string; children: ReactNode }) {
   const className = "flex items-center gap-x-3 justify-between group";
@@ -38,6 +36,37 @@ function CertificationLink({ href, children }: { href?: string; children: ReactN
 export default function Page() {
   return (
     <main className="min-h-dvh flex flex-col gap-14 relative">
+      <ProfileSidebar />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": `${DATA.url}/#person`,
+              name: DATA.name,
+              alternateName: "Habib Rajput",
+              jobTitle: "Senior Software Engineer",
+              description: DATA.description,
+              url: DATA.url,
+              image: `${DATA.url}${DATA.avatarUrl}`,
+              email: `mailto:${DATA.contact.email}`,
+              address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+              alumniOf: { "@type": "CollegeOrUniversity", name: "Superior University Lahore" },
+              knowsAbout: DATA.skills.map((skill) => skill.name),
+              sameAs: [DATA.contact.social.GitHub.url, DATA.contact.social.LinkedIn.url],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${DATA.url}/#website`,
+              url: DATA.url,
+              name: DATA.name,
+              inLanguage: "en",
+              publisher: { "@id": `${DATA.url}/#person` },
+            },
+          ],
+        }}
+      />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
@@ -48,6 +77,9 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <AvailabilityLine />
+              </BlurFade>
               <BlurFadeText
                 className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
                 delay={BLUR_FADE_DELAY}
@@ -55,16 +87,23 @@ export default function Page() {
               />
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <ul className="mt-2 flex flex-wrap gap-2">
-                  {CONTACT_LINKS.map(({ label, href, icon: Icon, external }) => (
+                  {CONTACT_LINKS.map(({ name, label, href, icon: Icon, external }) => (
                     <li key={href}>
-                      <a
-                        href={href}
-                        {...(external && { target: "_blank", rel: "noopener noreferrer" })}
-                        className="inline-flex h-8 items-center gap-2 rounded-xl border border-border bg-background px-3 text-sm text-muted-foreground ring-2 ring-border/20 transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      >
-                        <Icon className="size-4 shrink-0" aria-hidden />
-                        {label}
-                      </a>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <a
+                            href={href}
+                            {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                            aria-label={`${name}: ${label}`}
+                            className="flex size-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground ring-2 ring-border/20 transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          >
+                            <Icon className="size-4" aria-hidden />
+                          </a>
+                        </TooltipTrigger>
+                        <TooltipContent side="bottom" className="text-xs">
+                          {label}
+                        </TooltipContent>
+                      </Tooltip>
                     </li>
                   ))}
                 </ul>

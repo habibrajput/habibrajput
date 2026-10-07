@@ -5,6 +5,7 @@ import Markdown from "react-markdown";
 import { ArrowUpRight, ChevronLeft, Download, FileText } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ImageSlider } from "@/components/image-slider";
+import { JsonLd } from "@/components/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 
@@ -29,6 +30,7 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.description,
+    alternates: { canonical: `/projects/${slug}` },
     openGraph: {
       title: project.title,
       description: project.description,
@@ -59,6 +61,19 @@ export default async function ProjectPage({
 
   return (
     <main className="flex flex-col gap-10">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.description,
+          url: `${DATA.url}/projects/${project.slug}`,
+          image: project.images.map((image) => `${DATA.url}${image.src}`),
+          keywords: project.technologies.join(", "),
+          creator: { "@type": "Person", name: DATA.name, url: DATA.url, jobTitle: project.role },
+          ...(project.href && { sameAs: project.href }),
+        }}
+      />
       <BlurFade delay={BLUR_FADE_DELAY}>
         <Link
           href="/#projects"
