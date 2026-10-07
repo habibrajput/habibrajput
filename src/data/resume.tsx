@@ -287,6 +287,42 @@ const SITE_URL =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000");
 
+export type GalleryPlace = {
+  city: string;
+  area?: string;
+  country: string;
+  photos: readonly ProjectImage[];
+};
+
+const GALLERY: readonly GalleryPlace[] = [
+  {
+    city: "Dubai",
+    country: "UAE",
+    photos: [
+      { src: "/gallery/dubai/jbr-beach-ain-dubai.webp", alt: "Sunset on JBR beach with the Ain Dubai wheel behind", width: 750, height: 1000 },
+      { src: "/gallery/dubai/dubai-frame-fireworks.webp", alt: "New Year fireworks at the Dubai Frame", width: 750, height: 1000 },
+      { src: "/gallery/dubai/downtown-dubai.webp", alt: "Downtown Dubai by the Burj Lake at dusk", width: 750, height: 1000 },
+      { src: "/gallery/dubai/office.webp", alt: "Working with a colleague at the office in Dubai", width: 1000, height: 750 },
+      { src: "/gallery/dubai/dubai-mall.webp", alt: "At Dubai Mall", width: 750, height: 1000 },
+      { src: "/gallery/dubai/burj-fountain.webp", alt: "Night at the Dubai Fountain promenade", width: 450, height: 1000 },
+      { src: "/gallery/dubai/night-walk.webp", alt: "Late-night walk through the city", width: 1000, height: 750 },
+      { src: "/gallery/dubai/mall-christmas.webp", alt: "Christmas display at a Dubai mall", width: 750, height: 1000 },
+      { src: "/gallery/dubai/pakistan-latte.webp", alt: "A latte with \"Pakistan\" in the foam art at a Dubai café", width: 750, height: 1000 },
+    ],
+  },
+  {
+    city: "Lahore",
+    country: "Pakistan",
+    photos: [],
+  },
+  {
+    city: "Riyadh",
+    area: "Al Sulaymaniyah",
+    country: "KSA",
+    photos: [],
+  },
+];
+
 export const DATA = {
   name: "Habib Ur Rehman",
   initials: "HR",
@@ -305,25 +341,7 @@ export const DATA = {
     label: "Available for senior full-stack roles",
     emailSubject: "Opportunity for Habib",
   },
-  gallery: [
-    {
-      city: "Dubai",
-      country: "UAE",
-      photos: [
-        { src: "/gallery/dubai/jbr-beach-ain-dubai.webp", alt: "Sunset on JBR beach with the Ain Dubai wheel behind", width: 750, height: 1000 },
-        { src: "/gallery/dubai/dubai-frame-fireworks.webp", alt: "New Year fireworks at the Dubai Frame", width: 750, height: 1000 },
-        { src: "/gallery/dubai/downtown-dubai.webp", alt: "Downtown Dubai by the Burj Lake at dusk", width: 750, height: 1000 },
-        { src: "/gallery/dubai/dhow-cruise.webp", alt: "Evening dhow cruise on the water", width: 750, height: 1000 },
-        { src: "/gallery/dubai/office.webp", alt: "Working with a colleague at the office in Dubai", width: 1000, height: 750 },
-        { src: "/gallery/dubai/dubai-mall.webp", alt: "At Dubai Mall", width: 750, height: 1000 },
-        { src: "/gallery/dubai/burj-fountain.webp", alt: "Night at the Dubai Fountain promenade", width: 450, height: 1000 },
-        { src: "/gallery/dubai/night-walk.webp", alt: "Late-night walk through the city", width: 1000, height: 750 },
-        { src: "/gallery/dubai/mall-christmas.webp", alt: "Christmas display at a Dubai mall", width: 750, height: 1000 },
-        { src: "/gallery/dubai/evening-cafe.webp", alt: "Evening coffee with a friend", width: 563, height: 1000 },
-        { src: "/gallery/dubai/pakistan-latte.webp", alt: "A latte with \"Pakistan\" in the foam art at a Dubai café", width: 750, height: 1000 },
-      ],
-    },
-  ],
+  gallery: GALLERY,
   linkedinPosts: [
     {
       url: "https://www.linkedin.com/feed/update/urn:li:share:7509128354436984832",

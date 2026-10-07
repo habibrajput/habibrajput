@@ -10,6 +10,8 @@ import { ProjectCard } from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { BENTO_GRID, SectionHeading, Tile, TileLabel } from "@/components/landing/bento";
+import { SectionNav } from "@/components/landing/section-nav";
+import { SplitLayout } from "@/components/landing/split-layout";
 import WorkSection from "@/components/section/work-section";
 import GitHubSection from "@/components/section/github-section";
 import LinkedInSection from "@/components/section/linkedin-section";
@@ -58,6 +60,7 @@ function LogoDot({ src, alt }: { src?: string; alt: string }) {
 
 export default function Page() {
   return (
+    <SplitLayout>
     <main className="mx-auto flex min-h-dvh max-w-6xl flex-col gap-12">
       <JsonLd
         data={{
@@ -89,6 +92,8 @@ export default function Page() {
           ],
         }}
       />
+
+      <SectionNav />
 
       {/* ───────────── Hero ───────────── */}
       <section id="hero" aria-label="Introduction" className={`${BENTO_GRID} lg:auto-rows-[minmax(120px,auto)]`}>
@@ -353,7 +358,7 @@ export default function Page() {
       </section>
 
       {/* ───────────── Contact ───────────── */}
-      <section id="contact" aria-label="Contact">
+      <section id="contact" aria-label="Contact" className="scroll-mt-24">
         <Tile delay={D}>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
             <div className="flex flex-col gap-2">
@@ -386,6 +391,7 @@ export default function Page() {
         </Tile>
       </section>
     </main>
+    </SplitLayout>
   );
 }
 
