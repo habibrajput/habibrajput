@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { ArrowRight, ArrowUpRight, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText, Mail, MapPin, Sparkles } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { AvailabilityLine } from "@/components/availability-line";
 import { CONTACT_LINKS } from "@/components/contact-links";
@@ -109,7 +109,17 @@ export default function Page() {
             </h1>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <AvailabilityLine />
-              <ContactIcons placement="hero" />
+              <div className="flex flex-wrap items-center gap-2">
+                <ContactIcons placement="hero" />
+                <a
+                  href={DATA.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-sm font-medium transition-colors hover:bg-muted"
+                >
+                  <FileText className="size-4" aria-hidden /> View CV
+                </a>
+              </div>
             </div>
           </div>
         </Tile>
@@ -360,7 +370,17 @@ export default function Page() {
               >
                 <Mail className="size-4" aria-hidden /> {DATA.contact.email}
               </a>
-              <ContactIcons placement="contact" />
+              <div className="flex flex-wrap items-center gap-2">
+                <ContactIcons placement="contact" />
+                <a
+                  href={DATA.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-sm font-medium transition-colors hover:bg-muted"
+                >
+                  <FileText className="size-4" aria-hidden /> View CV
+                </a>
+              </div>
             </div>
           </div>
         </Tile>
