@@ -60,7 +60,7 @@ export default async function ProjectPage({
   const next = DATA.projects[(index + 1) % DATA.projects.length];
 
   return (
-    <main className="flex flex-col gap-10">
+    <main className="mx-auto flex max-w-2xl flex-col gap-10">
       <JsonLd
         data={{
           "@context": "https://schema.org",

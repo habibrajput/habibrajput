@@ -12,14 +12,14 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
+    return <div className="w-full h-40 bg-muted" />;
   }
 
   return (
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover object-top"
+      className="w-full h-40 object-cover object-top"
       onError={() => setImageError(true)}
     />
   );
@@ -85,7 +85,7 @@ export function ProjectCard({
                 loop
                 muted
                 playsInline
-                className="w-full h-48 object-cover"
+                className="w-full h-40 object-cover"
               />
             ) : (
               <ProjectImage src={image ?? ""} alt={title} />
@@ -114,7 +114,7 @@ export function ProjectCard({
           )}
         </div>
       )}
-      <div className="p-6 flex flex-col gap-3 flex-1">
+      <div className="p-4 flex flex-col gap-2 flex-1">
         <div className="flex items-start justify-between gap-2">
           <div className="flex flex-col gap-1">
             <h3 className="font-semibold">{title}</h3>
@@ -131,7 +131,7 @@ export function ProjectCard({
             </Link>
           )}
         </div>
-        <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+        <div className="text-xs flex-1 line-clamp-3 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
           <Markdown>{description}</Markdown>
         </div>
         {tags && tags.length > 0 && (
