@@ -7,15 +7,18 @@ export const BENTO_GRID = "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
 export function Tile({
   className,
   delay = 0,
+  compact = false,
   children,
 }: {
   className?: string;
   delay?: number;
+  /** Tighter padding, used where vertical space is precious (the hero). */
+  compact?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <BlurFade delay={delay} className={cn("h-full", className)}>
-      <div className="h-full rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+      <div className={cn("h-full rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg", compact ? "p-4" : "p-5")}>
         {children}
       </div>
     </BlurFade>

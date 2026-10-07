@@ -93,14 +93,15 @@ export default function Page() {
         }}
       />
 
+      {/* ───────────── Nav + hero: sized to fit a laptop screen ───────────── */}
+      <div className="flex flex-col gap-4">
       <SectionNav />
 
-      {/* ───────────── Hero ───────────── */}
-      <section id="hero" aria-label="Introduction" className={`${BENTO_GRID} lg:auto-rows-[minmax(120px,auto)]`}>
-        <Tile delay={D} className="sm:col-span-2 lg:row-span-2">
-          <div className="flex h-full flex-col justify-between gap-5">
+      <section id="hero" aria-label="Introduction" className={`${BENTO_GRID} lg:auto-rows-[minmax(88px,auto)]`}>
+        <Tile compact delay={D} className="sm:col-span-2 lg:row-span-2">
+          <div className="flex h-full flex-col justify-between gap-3">
             <div className="flex items-center gap-4">
-              <Avatar className="size-14 rounded-2xl border shadow">
+              <Avatar className="size-12 rounded-2xl border shadow">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover" />
                 <AvatarFallback className="rounded-2xl">{DATA.initials}</AvatarFallback>
               </Avatar>
@@ -109,7 +110,7 @@ export default function Page() {
                 <p className="text-sm text-muted-foreground">Senior Software Engineer</p>
               </div>
             </div>
-            <h1 className="text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+            <h1 className="text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-[1.65rem]">
               I build multi-tenant SaaS, e-commerce and POS platforms that hold up in production.
             </h1>
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -129,24 +130,24 @@ export default function Page() {
           </div>
         </Tile>
 
-        <Tile delay={D * 2}>
-          <div className="flex h-full flex-col justify-between gap-4">
+        <Tile compact delay={D * 2}>
+          <div className="flex h-full flex-col justify-between gap-2">
             <TileLabel>Experience</TileLabel>
-            <p className="text-5xl font-bold tracking-tighter">
+            <p className="text-4xl font-bold tracking-tighter">
               6+<span className="text-lg font-medium text-muted-foreground"> yrs</span>
             </p>
           </div>
         </Tile>
 
-        <Tile delay={D * 3}>
-          <div className="flex h-full flex-col justify-between gap-4">
+        <Tile compact delay={D * 3}>
+          <div className="flex h-full flex-col justify-between gap-2">
             <TileLabel>Projects shipped</TileLabel>
-            <p className="text-5xl font-bold tracking-tighter">10+</p>
+            <p className="text-4xl font-bold tracking-tighter">10+</p>
           </div>
         </Tile>
 
-        <Tile delay={D * 4} className="sm:col-span-2">
-          <div className="flex h-full flex-col gap-4">
+        <Tile compact delay={D * 4} className="sm:col-span-2">
+          <div className="flex h-full flex-col gap-3">
             <TileLabel>Core stack</TileLabel>
             <div className="flex flex-wrap gap-2">
               {CORE_STACK.map((skill) => (
@@ -162,9 +163,9 @@ export default function Page() {
           </div>
         </Tile>
 
-        <Tile delay={D * 5} className="sm:col-span-2">
-          <Link href={`/projects/${CURRENT.slug}`} className="group -m-5 flex h-[calc(100%+2.5rem)] overflow-hidden rounded-2xl">
-            <div className="flex flex-1 flex-col justify-between gap-3 p-5">
+        <Tile compact delay={D * 5} className="sm:col-span-2">
+          <Link href={`/projects/${CURRENT.slug}`} className="group -m-4 flex h-[calc(100%+2rem)] overflow-hidden rounded-2xl">
+            <div className="flex flex-1 flex-col justify-between gap-2 p-4">
               <div>
                 <TileLabel>Now</TileLabel>
                 <p className="mt-2 text-lg font-semibold">{CURRENT.title.split(" – ")[0]}</p>
@@ -179,8 +180,8 @@ export default function Page() {
           </Link>
         </Tile>
 
-        <Tile delay={D * 6}>
-          <a href={DATA.locationLink} target="_blank" rel="noopener noreferrer" className="flex h-full flex-col justify-between gap-4">
+        <Tile compact delay={D * 6}>
+          <a href={DATA.locationLink} target="_blank" rel="noopener noreferrer" className="flex h-full flex-col justify-between gap-2">
             <MapPin className="size-5 text-muted-foreground" aria-hidden />
             <div>
               <p className="font-semibold">Lahore, Pakistan</p>
@@ -191,8 +192,8 @@ export default function Page() {
 
         <ContactTile />
 
-        <Tile delay={D * 8} className="sm:col-span-2 lg:col-span-4">
-          <div className="flex flex-col gap-4">
+        <Tile compact delay={D * 8} className="sm:col-span-2 lg:col-span-4">
+          <div className="flex flex-col gap-2.5">
             <TileLabel>Companies I&apos;ve built for</TileLabel>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               {DATA.work.map((work) => (
@@ -211,6 +212,7 @@ export default function Page() {
           </div>
         </Tile>
       </section>
+      </div>
 
       {/* ───────────── About + achievements ───────────── */}
       <section aria-labelledby="about">
@@ -397,7 +399,7 @@ export default function Page() {
 
 function ContactTile() {
   return (
-    <Tile delay={D * 7} className="[&>div]:border-foreground [&>div]:bg-foreground [&>div]:text-background">
+    <Tile compact delay={D * 7} className="[&>div]:border-foreground [&>div]:bg-foreground [&>div]:text-background">
       <a href={`mailto:${DATA.contact.email}`} className="flex h-full flex-col justify-between gap-4">
         <Mail className="size-5" aria-hidden />
         <div>
