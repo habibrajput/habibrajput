@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { sendContactMessage } from "@/app/actions/contact";
 import { INQUIRY_TYPES, type ContactState } from "@/lib/contact";
@@ -43,6 +43,12 @@ function Field({
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContactMessage, initialState);
   const errors = state.fieldErrors ?? {};
+  // Spam check: record when the form loaded in the visitor's browser. Bots that post
+  // without running JavaScript, or submit instantly, fail the server-side check.
+  const startedAtRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (startedAtRef.current) startedAtRef.current.value = String(Date.now());
+  }, []);
 
   if (state.status === "success") {
     return (
@@ -118,11 +124,7 @@ export function ContactForm() {
         />
       </Field>
 
-      {/* Honeypot: hidden from people and screen readers, catches simple bots. */}
-      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-        <label htmlFor="hp_field">Leave this field empty</label>
-        <input id="hp_field" name="hp_field" tabIndex={-1} autoComplete="off" data-1p-ignore data-lpignore="true" />
-      </div>
+      <input ref={startedAtRef} type="hidden" name="started_at" defaultValue="" />
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p role="status" className={cn("text-sm", state.status === "error" ? "text-red-500" : "text-muted-foreground")}>

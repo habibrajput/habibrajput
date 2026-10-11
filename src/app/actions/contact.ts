@@ -12,17 +12,20 @@ const ContactSchema = z.object({
   message: z.string().trim().min(10, "Please write at least a few words.").max(5000),
 });
 
-// Honeypot field name: deliberately meaningless so browser/password-manager autofill
-// never fills it (a field named "company" was being autofilled for real visitors).
-const HONEYPOT = "hp_field";
+// Spam check: the form stamps `started_at` (ms) in the browser when it loads. A missing
+// stamp (no JavaScript) or a submit faster than this is treated as a bot. This replaced a
+// hidden honeypot text field, which browser autofill kept filling for real visitors.
+const MIN_FILL_MS = 3000;
 
 const escapeHtml = (value: string) =>
   value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export async function sendContactMessage(_prev: ContactState, formData: FormData): Promise<ContactState> {
-  // A filled honeypot means a bot: pretend it worked and send nothing.
-  if (String(formData.get(HONEYPOT) ?? "").trim()) {
-    console.warn("Contact form: honeypot filled, message dropped as spam.");
+  const startedAt = Number(formData.get("started_at"));
+  const elapsed = Date.now() - startedAt;
+  if (!startedAt || elapsed < MIN_FILL_MS) {
+    // Looks automated: pretend it worked and send nothing.
+    console.warn("Contact form: dropped as spam", { reason: !startedAt ? "no browser stamp" : "submitted too fast", elapsed });
     return { status: "success", message: "Thanks! Your message is on its way — I'll get back to you soon." };
   }
 
