@@ -112,7 +112,6 @@ Senior Software Engineer with 6+ years of experience building scalable web apps 
 🔭 &nbsp;I'm currently working on **TableTab, a QR-based restaurant ordering SaaS**  
 🌱 &nbsp;I'm currently learning **Test automation with Playwright, and Docker-based dev workflows**  
 👯 &nbsp;I'm looking to collaborate on **SaaS products, e-commerce platforms, and open-source Laravel/NestJS tools**  
-🤔 &nbsp;I'm looking for help with **Scaling multi-tenant architectures**  
 💬 &nbsp;Ask me about **Laravel, NestJS, Vue/React, and payment integrations**  
 
 <sub><code>03 — TOOLBOX</code></sub>
