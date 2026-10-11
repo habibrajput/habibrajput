@@ -109,7 +109,7 @@
 
 Senior Software Engineer with 6+ years of experience building scalable web apps across e-commerce, FinTech, and SaaS/POS. I work across the full stack, from Laravel and NestJS APIs to Vue, React, and Next.js frontends, and I also handle DevOps and product planning.
 
-🔭 &nbsp;I'm currently working on **TableTap, a QR-based restaurant ordering SaaS**  
+🔭 &nbsp;I'm currently working on **TableTab, a QR-based restaurant ordering SaaS**  
 🌱 &nbsp;I'm currently learning **Test automation with Playwright, and Docker-based dev workflows**  
 👯 &nbsp;I'm looking to collaborate on **SaaS products, e-commerce platforms, and open-source Laravel/NestJS tools**  
 🤔 &nbsp;I'm looking for help with **Scaling multi-tenant architectures**  
