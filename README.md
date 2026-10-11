@@ -107,7 +107,11 @@
 
 ### 👋 About me
 
-Senior Software Engineer with 6+ years of experience building scalable web apps across e-commerce, FinTech, and SaaS/POS. I work across the full stack, from Laravel and NestJS APIs to Vue, React, and Next.js frontends, and I also handle DevOps and product planning.
+I'm a Senior Software Engineer with **6+ years** of experience building and scaling web products — from multi-tenant SaaS and learning platforms to e-commerce, fintech and restaurant POS systems.
+
+I work across the whole stack: **Laravel** and **NestJS** on the backend, **Vue.js**, **React** and **Next.js** on the frontend, **MySQL**, **PostgreSQL** and **Redis** underneath, shipped with Docker, CI/CD pipelines and AWS.
+
+I care most about software that holds up in production — secure payment flows, fast checkouts, POS systems that keep selling when the network drops, and architecture the next engineer can extend without fear. I enjoy turning fuzzy requirements into clean, modular systems, working closely with product and design to get there.
 
 🔭 &nbsp;I'm currently working on **TableTab, a QR-based restaurant ordering SaaS**  
 🌱 &nbsp;I'm currently learning **Test automation with Playwright, and Docker-based dev workflows**  
