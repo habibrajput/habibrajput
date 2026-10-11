@@ -6,6 +6,7 @@ import { DATA } from "@/data/resume";
 import { AvailabilityLine } from "@/components/availability-line";
 import { CONTACT_LINKS } from "@/components/contact-links";
 import { JsonLd } from "@/components/json-ld";
+import { ContactForm } from "@/components/contact-form";
 import { ProjectCard } from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -111,7 +112,7 @@ export default function Page() {
               </div>
             </div>
             <h1 className="text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-[1.65rem]">
-              I build multi-tenant SaaS, e-commerce and POS platforms that hold up in production.
+              I build multi-tenant SaaS, fintech, e-commerce and POS platforms that hold up in production.
             </h1>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <AvailabilityLine />
@@ -361,36 +362,41 @@ export default function Page() {
 
       {/* ───────────── Contact ───────────── */}
       <section id="contact" aria-label="Contact" className="scroll-mt-24">
-        <Tile delay={D}>
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-            <div className="flex flex-col gap-2">
-              <AvailabilityLine />
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Let&apos;s build something together.</h2>
-              <p className="max-w-xl text-muted-foreground">
-                Hiring, or have a project in mind? Email me and I&apos;ll get back to you.
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-4 sm:items-end">
-              <a
-                href={`mailto:${DATA.contact.email}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-foreground px-5 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-              >
-                <Mail className="size-4" aria-hidden /> {DATA.contact.email}
-              </a>
-              <div className="flex flex-wrap items-center gap-2">
-                <ContactIcons placement="contact" />
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-5">
+          <Tile delay={D} className="lg:col-span-2">
+            <div className="flex h-full flex-col justify-between gap-6">
+              <div className="flex flex-col gap-2">
+                <AvailabilityLine />
+                <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Let&apos;s build something together.</h2>
+                <p className="text-muted-foreground">
+                  Have a project in mind, need help with a product, or hiring? Tell me a bit about it and I&apos;ll get back to you.
+                </p>
+              </div>
+              <div className="flex flex-col items-start gap-3">
                 <a
-                  href={DATA.cvUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-sm font-medium transition-colors hover:bg-muted"
+                  href={`mailto:${DATA.contact.email}`}
+                  className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
                 >
-                  <FileText className="size-4" aria-hidden /> View CV
+                  <Mail className="size-4" aria-hidden /> {DATA.contact.email}
                 </a>
+                <div className="flex flex-wrap items-center gap-2">
+                  <ContactIcons placement="contact" />
+                  <a
+                    href={DATA.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-sm font-medium transition-colors hover:bg-muted"
+                  >
+                    <FileText className="size-4" aria-hidden /> View CV
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        </Tile>
+          </Tile>
+          <Tile delay={D * 2} className="lg:col-span-3">
+            <ContactForm />
+          </Tile>
+        </div>
       </section>
     </main>
     </SplitLayout>

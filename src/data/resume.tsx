@@ -317,7 +317,6 @@ const GALLERY: readonly GalleryPlace[] = [
   },
   {
     city: "Riyadh",
-    area: "Al Sulaymaniyah",
     country: "KSA",
     photos: [],
   },
