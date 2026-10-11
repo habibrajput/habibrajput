@@ -113,10 +113,6 @@ I work across the whole stack: **Laravel** and **NestJS** on the backend, **Vue.
 
 I care most about software that holds up in production — secure payment flows, fast checkouts, POS systems that keep selling when the network drops, and architecture the next engineer can extend without fear. I enjoy turning fuzzy requirements into clean, modular systems, working closely with product and design to get there.
 
-🔭 &nbsp;I'm currently working on **TableTab, a QR-based restaurant ordering SaaS**  
-🌱 &nbsp;I'm currently learning **Test automation with Playwright, and Docker-based dev workflows**  
-💬 &nbsp;Ask me about **Laravel, NestJS, Vue/React, and payment integrations**  
-
 <sub><code>03 — TOOLBOX</code></sub>
 
 ### 🛠️ Tech Stack
