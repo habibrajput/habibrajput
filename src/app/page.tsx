@@ -112,7 +112,7 @@ export default function Page() {
               </div>
             </div>
             <h1 className="text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-[1.65rem]">
-              I build multi-tenant SaaS, fintech, e-commerce and POS platforms that hold up in production.
+              I build microservices, multi-tenant SaaS, fintech, e-commerce and POS platforms that hold up in production.
             </h1>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <AvailabilityLine />

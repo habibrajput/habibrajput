@@ -120,8 +120,8 @@ export function ContactForm() {
 
       {/* Honeypot: hidden from people and screen readers, catches simple bots. */}
       <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-        <label htmlFor="company">Company</label>
-        <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+        <label htmlFor="hp_field">Leave this field empty</label>
+        <input id="hp_field" name="hp_field" tabIndex={-1} autoComplete="off" data-1p-ignore data-lpignore="true" />
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
