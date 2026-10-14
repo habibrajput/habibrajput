@@ -39,7 +39,7 @@ const CORE_STACK = [
   ["Docker", "#2496ED"], ["AWS", "#FF9900"],
 ];
 const COMPANIES = [
-  ["Dr. Nutrition", "Riyadh, KSA", "public/dr-nutrition.webp"],
+  ["Dr. Nutrition", "Dubai, UAE", "public/dr-nutrition.webp"],
   ["RepairDesk", "Lahore, Pakistan", "public/repairdesk.png"],
   ["Developers Studio", "Lahore, Pakistan", "public/developers-studio.svg"],
   ["Sahoolat Kar", "Lahore, Pakistan", "public/sahoolat-kar.png"],

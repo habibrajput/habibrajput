@@ -420,7 +420,7 @@ export const DATA = {
       company: "Dr. Nutrition",
       href: "",
       badges: [],
-      location: "Riyadh, KSA",
+      location: "Dubai, UAE",
       title: "Senior Software Engineer",
       logoUrl: "/dr-nutrition.webp",
       start: "2023",

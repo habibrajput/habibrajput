@@ -186,7 +186,7 @@ export default function Page() {
             <MapPin className="size-5 text-muted-foreground" aria-hidden />
             <div>
               <p className="font-semibold">Lahore, Pakistan</p>
-              <p className="text-sm text-muted-foreground">Worked in Riyadh, KSA</p>
+              <p className="text-sm text-muted-foreground">Worked in Dubai, UAE</p>
             </div>
           </a>
         </Tile>
