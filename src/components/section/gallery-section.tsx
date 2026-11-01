@@ -46,7 +46,7 @@ export default function GallerySection({ showHeader = true }: { showHeader?: boo
               <span
                 className={cn(
                   "rounded-md px-1.5 py-0.5 text-[10px] font-semibold",
-                  selected ? "bg-background/20" : "bg-muted",
+                  selected ? "bg-background/20 text-background" : "bg-muted text-foreground",
                 )}
               >
                 {p.photos.length > 0 ? p.photos.length : "Soon"}

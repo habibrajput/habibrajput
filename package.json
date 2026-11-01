@@ -12,6 +12,12 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Safari versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions"
+  ],
   "dependencies": {
     "@content-collections/mdx": "^0.2.2",
     "@radix-ui/react-accordion": "^1.2.12",

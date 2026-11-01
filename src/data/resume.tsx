@@ -471,7 +471,7 @@ export const DATA = {
       badges: [],
       location: "Lahore, Pakistan",
       title: "Software Engineer",
-      logoUrl: "/sahoolat-kar.png",
+      logoUrl: "/sahoolat-kar.webp",
       start: "2020",
       end: "2021",
       description: [

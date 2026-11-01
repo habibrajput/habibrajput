@@ -8,19 +8,28 @@ export function Tile({
   className,
   delay = 0,
   compact = false,
+  animate = true,
   children,
 }: {
   className?: string;
   delay?: number;
   /** Tighter padding, used where vertical space is precious (the hero). */
   compact?: boolean;
+  /** Disable entrance animation (useful for above-the-fold / LCP content). */
+  animate?: boolean;
   children: React.ReactNode;
 }) {
+  const content = (
+    <div className={cn("h-full rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg", compact ? "p-4" : "p-5")}>
+      {children}
+    </div>
+  );
+  if (!animate) {
+    return <div className={cn("h-full", className)}>{content}</div>;
+  }
   return (
     <BlurFade delay={delay} className={cn("h-full", className)}>
-      <div className={cn("h-full rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg", compact ? "p-4" : "p-5")}>
-        {children}
-      </div>
+      {content}
     </BlurFade>
   );
 }

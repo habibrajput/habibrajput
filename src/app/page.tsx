@@ -6,17 +6,20 @@ import { DATA } from "@/data/resume";
 import { AvailabilityLine } from "@/components/availability-line";
 import { CONTACT_LINKS } from "@/components/contact-links";
 import { JsonLd } from "@/components/json-ld";
-import { ContactForm } from "@/components/contact-form";
+
 import { ProjectCard } from "@/components/project-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { BENTO_GRID, SectionHeading, Tile, TileLabel } from "@/components/landing/bento";
 import { SectionNav } from "@/components/landing/section-nav";
 import { SplitLayout } from "@/components/landing/split-layout";
-import WorkSection from "@/components/section/work-section";
-import GitHubSection from "@/components/section/github-section";
-import LinkedInSection from "@/components/section/linkedin-section";
-import GallerySection from "@/components/section/gallery-section";
+import dynamic from "next/dynamic";
+
+const WorkSection = dynamic(() => import("@/components/section/work-section"));
+const GitHubSection = dynamic(() => import("@/components/section/github-section"));
+const LinkedInSection = dynamic(() => import("@/components/section/linkedin-section"));
+const GallerySection = dynamic(() => import("@/components/section/gallery-section"));
+const ContactForm = dynamic(() => import("@/components/contact-form").then((m) => m.ContactForm));
 
 const D = 0.04;
 const CORE_STACK = DATA.skills.slice(0, 12);
@@ -99,7 +102,7 @@ export default function Page() {
       <SectionNav />
 
       <section id="hero" aria-label="Introduction" className={`${BENTO_GRID} lg:auto-rows-[minmax(88px,auto)]`}>
-        <Tile compact delay={D} className="sm:col-span-2 lg:row-span-2">
+        <Tile compact animate={false} delay={D} className="sm:col-span-2 lg:row-span-2">
           <div className="flex h-full flex-col justify-between gap-3">
             <div className="flex items-center gap-4">
               <Avatar className="size-12 rounded-2xl border shadow">
@@ -202,7 +205,7 @@ export default function Page() {
                   <img src={work.logoUrl} alt="" className="size-8 shrink-0 rounded-full border border-border bg-white object-contain p-0.5" />
                   <span className="flex flex-col leading-tight">
                     <span className="text-sm font-medium text-muted-foreground">{work.company}</span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground/70">
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
                       <MapPin className="size-3" aria-hidden />
                       {work.location}
                     </span>

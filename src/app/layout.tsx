@@ -93,6 +93,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://github-contributions-api.jogruber.de" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased relative",
