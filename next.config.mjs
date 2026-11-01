@@ -7,25 +7,32 @@ const nextConfig = {
     optimizeCss: true,
   },
   async headers() {
+    const cacheImmutable = [
+      {
+        key: "Cache-Control",
+        value: "public, max-age=31536000, immutable",
+      },
+    ];
+    const staticSources = [
+      "/:path*.svg",
+      "/:path*.png",
+      "/:path*.jpg",
+      "/:path*.jpeg",
+      "/:path*.webp",
+      "/:path*.avif",
+      "/:path*.ico",
+      "/:path*.woff",
+      "/:path*.woff2",
+    ];
     return [
       {
         source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
+        headers: cacheImmutable,
       },
-      {
-        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff|woff2)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
+      ...staticSources.map((source) => ({
+        source,
+        headers: cacheImmutable,
+      })),
       {
         source: "/:path*",
         headers: [
