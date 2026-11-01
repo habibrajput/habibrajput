@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { ArrowRight, ArrowUpRight, FileText, Mail, MapPin, Sparkles } from "lucide-react";
@@ -180,7 +181,7 @@ export default function Page() {
                 View project <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
               </span>
             </div>
-            <img src={CURRENT.images[0].src} alt={CURRENT.images[0].alt} className="hidden w-1/2 object-cover object-left-top sm:block" />
+            <Image src={CURRENT.images[0].src} alt={CURRENT.images[0].alt} width={800} height={354} className="hidden w-1/2 object-cover object-left-top sm:block" />
           </Link>
         </Tile>
 

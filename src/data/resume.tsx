@@ -356,7 +356,7 @@ export const DATA = {
       image: { src: "/linkedin/claude-code-certificate.webp", alt: "Claude Code in Action certificate of completion", width: 1000, height: 772 },
     },
   ],
-  avatarUrl: "/me.jpg",
+  avatarUrl: "/me.webp",
   skills: [
     { name: "PHP", icon: fromSimpleIcon(siPhp) },
     { name: "Laravel", icon: fromSimpleIcon(siLaravel) },

@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
@@ -322,7 +322,7 @@ export default async function ProjectPage({
                 </span>
               </div>
               {next.images[0] && (
-                <img src={next.images[0].src} alt={next.images[0].alt} className="hidden w-2/5 object-cover object-left-top sm:block" />
+                <Image src={next.images[0].src} alt={next.images[0].alt} width={800} height={354} className="hidden w-2/5 object-cover object-left-top sm:block" />
               )}
             </Link>
           </Tile>

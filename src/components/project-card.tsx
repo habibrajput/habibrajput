@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
@@ -16,9 +16,11 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
+      width={800}
+      height={354}
       className="w-full h-40 object-cover object-top"
       onError={() => setImageError(true)}
     />
