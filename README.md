@@ -4,7 +4,7 @@
   <a href="https://habibrajput.vercel.app"><b>Portfolio</b></a> ·
   <a href="https://habibrajput.vercel.app/#projects"><b>Projects</b></a> ·
   <a href="https://habibrajput.vercel.app/blog"><b>Blog</b></a> ·
-  <a href="https://app.enhancv.com/share/43fb4d7c"><b>CV</b></a> ·
+  <a href="/my-resume.pdf"><b>CV</b></a> ·
   <a href="mailto:findhabibrajput@gmail.com"><b>Email</b></a> ·
   <a href="https://linkedin.com/in/habibrajput"><b>LinkedIn</b></a>
 </p>
@@ -243,7 +243,7 @@ Have a project in mind, need help with a product, or hiring? [Send me a message]
   <a href="mailto:findhabibrajput@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
   <a href="https://linkedin.com/in/habibrajput"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://habibrajput.vercel.app"><img src="https://img.shields.io/badge/Portfolio-0a0a0a?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
-  <a href="https://app.enhancv.com/share/43fb4d7c"><img src="https://img.shields.io/badge/View%20CV-10b981?style=for-the-badge&logo=readdotcv&logoColor=white" alt="View CV" /></a>
+  <a href="/my-resume.pdf"><img src="https://img.shields.io/badge/View%20CV-10b981?style=for-the-badge&logo=readdotcv&logoColor=white" alt="View CV" /></a>
 </p>
 
 ---

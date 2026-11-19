@@ -333,7 +333,7 @@ export const DATA = {
   summary:
     "I'm a Senior Software Engineer with **6+ years** of experience building and scaling web products — from multi-tenant SaaS and learning platforms to e-commerce, fintech and restaurant POS systems.\n\nI work across the whole stack: **Laravel** and **NestJS** on the backend, **Vue.js**, **React** and **Next.js** on the frontend, **MySQL**, **PostgreSQL** and **Redis** underneath, shipped with Docker, CI/CD pipelines and AWS.\n\nI care most about software that holds up in production — secure payment flows, fast checkouts, POS systems that keep selling when the network drops, and architecture the next engineer can extend without fear. I enjoy turning fuzzy requirements into clean, modular systems, working closely with product and design to get there.",
   githubUsername: "habibrajput",
-  cvUrl: "https://app.enhancv.com/share/43fb4d7c",
+  cvUrl: "/my-resume.pdf",
   // Set open: false to hide the "open to work" badge.
   availability: {
     open: true,
@@ -387,7 +387,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    { href: "https://app.enhancv.com/share/43fb4d7c", icon: FileText, label: "CV" },
+    { href: "/my-resume.pdf", icon: FileText, label: "CV" },
   ],
   contact: {
     email: "findhabibrajput@gmail.com",
